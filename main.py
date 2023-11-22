@@ -8,10 +8,6 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import accuracy_score, confusion_matrix, precision_score, recall_score, ConfusionMatrixDisplay
 
 
-from sklearn.tree import export_graphviz
-from IPython.display import Image
-import graphviz
-
 t1 = time.time()
 rand1 = random.randint(0, 3)
 rand2 = random.randint(0, 4)
@@ -26,7 +22,7 @@ test_targets = np.array_split(raw_test_data.classification, 5)[rand2]
 
 print(time.time()-t1)
 
-random_forest = RandomForestClassifier()
+random_forest = RandomForestClassifier(n_jobs=6)
 random_forest.fit(training_features, training_targets)
 predictions = random_forest.predict(test_features)
 
@@ -42,16 +38,6 @@ disp = ConfusionMatrixDisplay(confusion_matrix=cm, display_labels=None)
 disp.plot()
 plt.show()
 print(time.time()-t1)
-
-# las = laspy.read("test.laz")
-# #print(np.unique(las.classification))
-# print(las.header)
-# print(las.header.point_count)
-# #print(las.xyz)
-# #print(np.append(las.xyz, np.reshape(las.classification, (-1, 1)), 1))
-# print(np.max(las.xyz, axis=0))
-# print(np.min(las.xyz, axis=0))
-
 
 
 #if __name__ == '__main__':

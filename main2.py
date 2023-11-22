@@ -36,7 +36,7 @@ test_targets = np.array_split(raw_test_data.classification, 5)[rand2]
 
 print(time.time()-t1)
 
-random_forest = RandomForestClassifier()
+random_forest = RandomForestClassifier(n_jobs=4)
 random_forest.fit(training_features, training_targets)
 predictions = random_forest.predict(test_features)
 
