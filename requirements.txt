@@ -1,0 +1,9 @@
+graphviz
+ipython
+laspy
+laszip
+matplotlib
+numpy
+pandas
+scikit-learn
+scipy
